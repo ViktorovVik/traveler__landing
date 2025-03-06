@@ -1,0 +1,14 @@
+@use 'fonts';
+@use 'globals';
+@use 'utils';
+@use 'vars';
+@use 'normalize';
+
+@use 'blocks/header';
+@use 'blocks/swiper';
+@use 'blocks/burger-btn';
+@use 'blocks/soc1als';
+@use 'blocks/slide';
+@use 'blocks/location';
+@use 'blocks/mobile-nav';
+@use 'blocks/loader';

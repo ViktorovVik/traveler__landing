@@ -1,0 +1,78 @@
+@use '../helpers' as *;
+
+.burger-button {
+   position: absolute;
+   top: 60px;
+   right: 69px;
+   pointer-events: all;
+   z-index: 200;
+
+   @include tablet {
+      top: 50px;
+      right: 45px;
+    }
+
+   @include mobile {
+      top: 40px;
+      right: 45px;
+   }
+}
+
+.burger__menu {
+   display: block;
+   width: 35px;
+   height: 23px;
+   position: relative;
+   z-index: 110;
+   cursor: pointer;
+   
+   
+   span {
+      position: absolute;
+      top: calc(50% - 1px);
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-light-grey);
+      border-radius: 1px;
+      transition: .3s ease-in;
+      
+   }
+
+   span:first-child {
+      top: 0; 
+      width: 32px;
+   }
+
+   span:nth-child(2) {
+      left: 4px;
+      width: 28px;
+   }
+   
+   span:last-child {
+      bottom: 0;
+      top: auto;
+      width: 22px;
+      left: 10px;
+   }
+
+   &.active {
+      span {
+         transform: scale(0);
+   
+         &:first-child {
+            transform: rotate(-45deg);
+            top: calc(46% - 1px);
+            width: 100%;
+            left: 9px;
+            
+         }
+   
+         &:last-child {
+            transform: rotate(45deg);
+            bottom: calc(50% - 1px);
+            width: 100%;
+         }
+      }
+   } 
+}

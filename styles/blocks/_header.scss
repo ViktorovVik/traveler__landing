@@ -1,0 +1,191 @@
+@use '../helpers' as *;
+
+.header {
+   height: 100vh;
+   position: relative;
+   background-color: var(--color-bg);
+
+
+   
+
+   &__inner {
+      position: absolute;
+      z-index: 9;
+      top: 50px;
+      left: 70px;
+      right: 70px;
+      bottom: 80px;
+      pointer-events: none;
+
+      @include tablet {
+         top: 40px;
+         left: 40px;
+         right: 40px;
+         bottom: 60px;
+      }
+
+      @include mobile {
+         top: 30px;
+         left: 5%;
+         right: 5%;
+         bottom: 30px;
+      }
+   }
+
+   &__nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 60%;
+      pointer-events: all;
+
+      @include laptop {
+         max-width: 70%; 
+      }
+
+      
+      @include tablet {
+         max-width: 100%;
+       }
+      
+      &-menu-list {
+         display: flex;
+         column-gap: clamp(1.875rem, 1.08rem + 3.98vw, 4.063rem);
+         margin-left: 30px;
+
+         @include tablet {
+            display: none;
+          }
+      }
+
+      &-menu-link {
+      position: relative;
+      z-index: 5;
+     
+      &::after {
+         content: "";
+         position: absolute;
+         background-color: var(--color-white);
+         width: 100%;
+         height: 1px;
+         bottom: 1px;
+         left: 0;
+         transform-origin: right;
+         transform: scaleX(0);
+         transition: transform 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+         transform-origin: left;
+         transform: scaleX(1);
+      }
+
+     
+   }
+         
+      
+   }
+
+   &__see-more {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      pointer-events: all;
+
+      @include tablet {
+         display: none;
+      }
+
+      &-link {
+         position: relative;
+         padding-left: 60px;
+         color: var(--color-see-more);
+         display: block;
+
+         transform: rotate(-90deg) translate(0%, 100%);
+         transform-origin: left bottom;
+         text-transform: uppercase;
+
+         &::before {
+            content: '';
+            width: 38px;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            top: calc(50% - 2px);
+            background-color: #fff;
+            opacity: 0.3;
+         }
+      }
+   }
+
+   &__slider-controls {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      pointer-events: all;
+
+      display: grid;
+      gap: 15px;
+
+      @include tablet {
+         display: none;
+      }
+
+      &-arrows {
+         display: flex;
+         column-gap: 5px;
+         
+      }
+
+      &-prev {
+         transform: rotate(180deg);
+      }
+
+
+      &-count {
+         display: flex;
+         column-gap: 6px;
+         justify-content: flex-end;
+         align-items: flex-end;
+
+         color: var(--color-see-more);
+         font-weight: 600;
+         line-height: 1;
+         text-align: right;
+
+         &-current, .swiper-pagination-current {
+            font-size: 32px;
+            line-height: 0.75;
+            color: var(--color-white);
+         }
+      }
+      
+      
+   }
+
+   &__scrollbar {
+      pointer-events: all;
+      position: absolute;
+      right: 0;
+      top: 45%;
+      width: 400px;
+      height: 10px;
+      transform: rotate(90deg) translate(50%, 0%);
+      transform-origin: right top;
+      
+      @include mobile-height {
+         width: 300px;
+      }
+
+      @include mobile {
+         transform: none;
+         top: unset;
+         bottom: -15px;
+         left: 0;
+         right: unset;
+         width: 100%;
+      }
+
+   }
+}

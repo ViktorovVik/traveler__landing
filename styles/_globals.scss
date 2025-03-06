@@ -1,0 +1,130 @@
+*,
+::before,
+::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+
+html {
+   height: 100%;
+}
+
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+   font-family: "Montserrat", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+   color: var(--color-white);
+   line-height: 1.5;
+   min-height: 100%;
+   font-size: 18px;
+
+//   font-family: "Roboto", sans-serif;
+//   font-optical-sizing: auto;
+//   font-weight: <weight>;
+//   font-style: normal;
+
+
+   &.is-lock {
+      overflow: hidden
+   }  
+}
+
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+
+}
+
+
+.h1 {
+   font-size: clamp(3.125rem, -0.579rem + 20.52vw, 15.625rem);
+   font-weight: 700;
+}  
+
+.h2 {
+   font-size: clamp(1.875rem, 1.551rem + 1.62vw, 3rem);
+}
+
+.h3 {
+   font-weight: 700;
+   font-size: clamp(1.125rem, 1.08rem + 0.23vw, 1.25rem);
+   color: var(--color-white);
+   line-height: 1.2;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+   transition-duration: var(--transition-duration);
+}
+
+a {
+   color: inherit;
+   margin: 0;
+   padding: 0;
+
+  
+   &:hover {
+      color: var(--grey-color);
+   }
+   &[class] {
+      text-decoration: none;
+   }
+}
+
+:focus-visible {
+   outline: 2px dashed var(--color-light);
+   outline-offset: 4px;
+   transition-duration: 0s !important;
+}
+
+a, 
+button {
+   border: none;
+   background-color: transparent;
+   
+   &[aria-label] {
+         position: relative;
+         &::before {
+
+            content: '';
+      }
+   }
+   
+}
+
+section {
+   scroll-margin-top: 100px;
+}
+
+img,
+ video {
+   display: block;
+   max-width: 100%;
+   height: auto;
+}
+
+ button,
+ label {
+   cursor: pointer;
+}
+
+ul {
+   list-style-type: none;
+}

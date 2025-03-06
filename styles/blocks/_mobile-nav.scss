@@ -1,0 +1,72 @@
+@use '../helpers' as *;
+
+
+.mobile-nav-overlay {
+   opacity: 0;
+   z-index: 99;
+   position: absolute;
+   top: 0px;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   pointer-events: none;
+   transition-duration: var(--transition-duration);
+
+   &.active {
+      opacity: 1;
+      pointer-events: all;
+   }
+}
+.mobile-nav {
+   position: fixed;
+   top: 0;
+   right: 0;
+   z-index: 100;
+   transform: translate(100%, 0%);
+
+   height: 100vh;
+   width: 440px;
+   padding: 80px 60px 40px;
+   background-color: #000000;
+
+   transition: transform .4s ease-in;
+
+   &.open {
+      transform: translate(0%, 0%);
+   }
+
+   @include mobile {
+      width: 320px;
+      padding: 40px 30px 0;
+   }
+
+   @include mobile-s {
+      width: 100%;
+   }
+
+   &__list {
+      font-size: clamp(1.125rem, 1.051rem + 0.37vw, 1.375rem);
+
+
+   }
+
+   &__item {
+      border-bottom: var(--border-bottom);
+   }
+
+   &__link {
+      display: block;
+      padding: 30px 0;
+      transition: all .2s ease-in;
+
+      @include mobile {
+         padding: 15px 0;
+      }
+
+      &:hover {
+         padding-left: 20px;
+      }
+   }
+
+}

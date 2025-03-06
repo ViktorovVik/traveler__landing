@@ -1,0 +1,36 @@
+@use '../helpers' as *;
+
+.soc1als {
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translate(0%, -50%);
+   pointer-events: all;
+   
+   @include mobile {
+      display: none;
+   }
+
+   @media (max-height: 600px) {
+      top: 40%;
+   }
+
+   &__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 29px;
+      align-items: center;
+   }
+
+   &__link {
+      fill: var(--color-white);
+
+      @media (any-hover: hover) {
+         &:hover {
+            fill: var(--color-bg);
+         }
+      }
+   }
+}
