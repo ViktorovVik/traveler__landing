@@ -1,7 +1,8 @@
-import mobileNav from './modules/mobile-nav.js';
-import loader from './modules/loader.js';
-mobileNav();
-loader();
+import * as mobileNav from './mobile-nav.js';
+import * as loader from './loader.js';
+
+
+
 
 
 const swiper = new Swiper('.swiper', {
