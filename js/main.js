@@ -3,7 +3,6 @@ import loader from './modules/loader.js';
 mobileNav();
 loader();
 
-import Swiper from '../node_modules/swiper/swiper-bundle.min.mjs';
 
 const swiper = new Swiper('.swiper', {
    parallax: true,
